@@ -13,6 +13,9 @@
         "axios": "^0.21",
         "laravel-mix": "^6.0.6",
         "lodash": "^4.17.19",
-        "postcss": "^8.1.14"
+        "lost": "^8.3.1",
+        "postcss": "^8.1.14",
+        "postcss-nested": "^5.0.5",
+        "precss": "^4.0.0"
     }
 }
