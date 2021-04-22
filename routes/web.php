@@ -16,3 +16,20 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('vne.pages.home');
 });
+use App\Http\Controllers\Admin\LoginController;
+use App\Http\Controllers\Admin\UserController;
+Route::prefix('admin')->group(function () {
+    Route::get('/', function () {
+        // Matches The "/admin" URL
+        return view('vne.admin.dashboard');
+    })->middleware('auth');
+    Route::get('/users', function () {
+        // Matches The "/admin/users" URL
+    })->middleware('auth');
+    Route::get('/login', function() {
+        return view('vne.admin.login');
+    })->name('login');
+    Route::post('/login/authenticate', [LoginController::class, 'authenticate'])->name('authenticate');
+    Route::get('/logout', [UserController::class, 'logout'])->name('logout');
+});
+

@@ -10,20 +10,6 @@
     </head>
     <body>
 
-        @if (Route::has('login'))
-            <div>
-                @auth
-                    <a href="{{ url('/home') }}">Home</a>
-                @else
-                    <a href="{{ route('login') }}">Log in</a>
-
-                    @if (Route::has('register'))
-                        <a href="{{ route('register') }}">Register</a>
-                    @endif
-                @endauth
-            </div>
-        @endif
-
         <header>
             <div class="container">
                 <div class="row">
@@ -32,7 +18,17 @@
                     </div>
                     <div class="col-3"></div>
                     <div class="col-3">
-                        <a href="">Login</a>
+                        @if (Route::has('customer.login'))
+                            @auth
+                                <a href="{{ url('/home') }}">Home</a>
+                            @else
+                                <a href="{{ route('customer.login') }}">Log in</a>
+
+                                @if (Route::has('customer.register'))
+                                    <a href="{{ route('customer.register') }}">Register</a>
+                                @endif
+                            @endauth
+                        @endif
                     </div>
                 </div>
             </div>
