@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\LoginController;
+use App\Http\Controllers\Admin\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,8 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('vne.pages.home');
 });
-use App\Http\Controllers\Admin\LoginController;
-use App\Http\Controllers\Admin\UserController;
+
 Route::prefix('admin')->group(function () {
     Route::get('/', function () {
         // Matches The "/admin" URL

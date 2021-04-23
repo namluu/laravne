@@ -16,4 +16,5 @@ mix.js('resources/js/app.js', 'public/js')
         require('precss'),
         require('postcss-nested'),
         require('lost')
-    ]);
+    ])
+    .sass('resources/sass/admin.scss', 'public/css');
