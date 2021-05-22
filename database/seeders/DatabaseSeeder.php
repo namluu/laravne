@@ -13,6 +13,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\User::factory(10)->create();
+        for ($i = 0; $i < 10; $i++) {
+            $user = \App\Models\User::factory()->create();
+            $category = \App\Models\Category::factory()->create();
+            $posts = \App\Models\Post::factory()
+                        ->count(3)
+                        ->for($user)
+                        ->for($category)
+                        ->create();
+        }
     }
 }

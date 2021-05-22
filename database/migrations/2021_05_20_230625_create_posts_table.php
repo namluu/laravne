@@ -17,6 +17,7 @@ class CreatePostsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('alias')->unique();
+            $table->text('content')->nullable();
             $table->boolean('enabled')->default(1);
             $table->foreignId('user_id')->constrained();
             $table->foreignId('category_id')->constrained('cms_categories');
