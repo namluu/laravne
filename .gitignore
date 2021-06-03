@@ -16,3 +16,4 @@ bootstrap
 public
 storage
 .idea
+.DS_Store
