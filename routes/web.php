@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\Cms\CategoryController;
+use App\Http\Controllers\Admin\Cms\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,5 +34,9 @@ Route::prefix('admin')->group(function () {
     })->name('login');
     Route::post('/login/authenticate', [LoginController::class, 'authenticate'])->name('authenticate');
     Route::get('/logout', [UserController::class, 'logout'])->name('logout');
+
+    Route::resource('/cms/categories', CategoryController::class)->middleware('auth');
+    Route::resource('/cms/posts', PostController::class)->middleware('auth');
+
 });
 
