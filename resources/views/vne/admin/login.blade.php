@@ -13,7 +13,7 @@
     <link href="{{ mix('css/admin.css') }}" rel="stylesheet">
 </head>
 
-<body>
+<body class="login-page">
 
     <div class="container">
         <div class="row">

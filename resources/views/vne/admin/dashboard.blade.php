@@ -1,12 +1,9 @@
-dashboard
-<a href="{{ route('logout') }}">logout</a>
+@extends('vne.admin.layout')
 
-<p>Menu</p>
-<ul>
-    <li>
-        <a href="{{ url('admin/cms/categories') }}">Category</a>
-    </li>
-    <li>
-        <a href="{{ url('admin/cms/posts') }}">Post</a>
-    </li>
-</ul>
+@section('title', 'Dashboard - ')
+
+@section('content')
+
+<h1>dashboard</h1>
+
+@endsection
