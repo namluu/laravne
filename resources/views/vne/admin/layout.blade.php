@@ -19,11 +19,9 @@
                     </div>
                     <div class="col-3"></div>
                     <div class="col-3">
-                        @if (Route::has('customer.login'))
-                            @auth
-                                <a href="{{ route('logout') }}">logout</a>
-                            @endauth
-                        @endif
+                        @auth
+                            <a href="{{ route('logout') }}">logout</a>
+                        @endauth
                     </div>
                 </div>
             </div>
