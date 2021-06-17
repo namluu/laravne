@@ -1,11 +1,13 @@
-@extends('vne.admin.layout')
+@extends('admin.layout')
 
 @section('title', 'Category - ')
 
 @section('content')
 
 <h1>category</h1>
-
+<div class="mb-4">
+    <a href="{{ url('admin/cms/categories/create')}}" class="btn btn-primary">Add Category</a>
+</div>
 <table class="table">
   <thead>
     <tr class="table-primary">

@@ -1,4 +1,4 @@
-@extends('vne.layout')
+@extends('layout')
 
 {{--@section('title', 'Page Title - ')--}}
 

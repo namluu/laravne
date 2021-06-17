@@ -1,4 +1,4 @@
-@extends('vne.admin.layout')
+@extends('admin.layout')
 
 @section('title', 'Dashboard - ')
 
