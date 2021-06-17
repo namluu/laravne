@@ -2,42 +2,73 @@
 
 namespace App\Http\Controllers\Admin\Cms;
 use App\Models\Category;
+use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class CategoryController
 {
     public function index()
     {
         $categories = Category::get();
-        return view('vne.admin.cms.category.index', compact('categories'));
+        return view('admin.cms.category.index', compact('categories'));
     }
 
     public function create()
     {
-        echo 'create';
+        return view('admin.cms.category.create');
     }
 
-    public function store()
+    public function store(Request $request)
     {
-
+        $request->validate([
+            'name'=>'required',
+            'enabled'=>'required'
+        ]);
+        $category = new Category([
+            'name' => $request->input('name'),
+            'alias' => Str::slug($request->input('name')),
+            'enabled' => $request->input('enabled')
+        ]);
+        $category->save();
+        return redirect('admin/cms/categories/'.$category->id)->with('success','Saved successfully!');
     }
 
-    public function show()
+    public function show($id)
     {
-
+        $category = Category::find($id);
+        return view('admin.cms.category.show', compact('category'));
     }
 
-    public function edit()
+    public function edit($id)
     {
-
+        $category = Category::find($id);
+        return view('admin.cms.category.edit', compact('category'));
     }
 
-    public function update()
+    public function update($id, Request $request)
     {
-
+        $request->validate([
+            'name'=>'required',
+            'enabled'=>'required'
+        ]);
+        $category = Category::find($id);
+        $category->name = $request->input('name');
+        $category->alias = Str::slug($request->input('name'));
+        $category->enabled = $request->input('enabled');
+        $category->save();
+        return redirect('admin/cms/categories/'.$id)->with('success','Saved successfully!');
     }
 
-    public function detroy()
+    public function destroy($id)
     {
-
+        $category = Category::find($id);
+        try {
+            $category->delete();
+            return redirect('admin/cms/categories')->with('success', 'Deleted successfully!');
+        } catch (\Illuminate\Database\QueryException $e) {
+            return redirect('admin/cms/categories')->with('error', 'Deleted failed! Please remove posts inside category first');
+        } catch (\Exception $e) {
+            return redirect('admin/cms/categories')->with('error', 'Deleted failed! '.$e->getMessage());
+        }
     }
 }

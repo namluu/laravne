@@ -1,1 +1,5 @@
-require('./bootstrap');
+
+function confirmDelete() {
+    return !!confirm("Delete this item?");
+}
+
