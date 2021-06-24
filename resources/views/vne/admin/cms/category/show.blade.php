@@ -18,7 +18,7 @@
         <form class="form-inline" action="{{ url('admin/cms/categories/'. $category->id)}}" method="post">
             @csrf
             @method('DELETE')
-            <button class="btn btn-danger btn-sm" type="submit">Delete</button>
+            <button class="btn btn-danger btn-sm" type="submit" onclick="return !!confirm('Delete this item?');">Delete</button>
         </form>
     </div>
 

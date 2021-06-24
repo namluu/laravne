@@ -5,7 +5,9 @@
 @section('content')
 
     <h1>post</h1>
-
+    <div class="mb-4">
+        <a href="{{ url('admin/cms/posts/create')}}" class="btn btn-primary">Add Post</a>
+    </div>
     <table class="table">
         <thead>
         <tr class="table-primary">
@@ -24,11 +26,11 @@
                 <td>{{ $post->enabled }}</td>
                 <td>{{ $post->created_at }}</td>
                 <td>
-                    <a href="{{ url('admin/cms/posts/edit', $post->id) }}" class="btn btn-primary btn-sm float-left mr-2">Edit</a>
-                    <form class="form-inline" action="{{ url('admin/cms/posts/destroy', $post->id)}}" method="post">
+                    <a href="{{ url('admin/cms/posts/'. $post->id . '/edit') }}" class="btn btn-primary btn-sm float-left mr-2">Edit</a>
+                    <form class="form-inline" action="{{ url('admin/cms/posts/'. $post->id)}}" method="post">
                         @csrf
                         @method('DELETE')
-                        <button class="btn btn-danger btn-sm" type="submit">Delete</button>
+                        <button class="btn btn-danger btn-sm" type="submit" onclick="return !!confirm('Delete this item?');">Delete</button>
                     </form>
                 </td>
             </tr>
