@@ -12,6 +12,8 @@
     <p>Name: {{ $category->name }}</p>
     <p>Alias: {{ $category->alias }}</p>
     <p>Active: {{ $category->enabled == 1 ? 'Yes' : 'No' }}</p>
+    <p>Menu: {{ $category->is_menu == 1 ? 'Yes' : 'No' }}</p>
+    <p>Sort: {{ $category->sort_menu }}</p>
 
     <div>
         <a href="{{ url('admin/cms/categories/'. $category->id.'/edit') }}" class="btn btn-primary btn-sm float-left mr-2">Edit</a>

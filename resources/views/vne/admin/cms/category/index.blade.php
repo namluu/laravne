@@ -14,6 +14,8 @@
             <th scope="col">#</th>
             <th scope="col">Name</th>
             <th scope="col">Enable</th>
+            <th scope="col">Menu</th>
+            <th scope="col">Sort</th>
             <th scope="col">Created</th>
             <th scope="col">Action</th>
         </tr>
@@ -24,6 +26,8 @@
                 <th scope="row">{{ $category->id }}</th>
                 <td>{{ $category->name }}</td>
                 <td>{{ $category->enabled }}</td>
+                <td>{{ $category->is_menu }}</td>
+                <td>{{ $category->sort_menu }}</td>
                 <td>{{ $category->created_at }}</td>
                 <td>
                     <a href="{{ url('admin/cms/categories/'. $category->id . '/edit') }}" class="btn btn-primary btn-sm float-left mr-2">Edit</a>

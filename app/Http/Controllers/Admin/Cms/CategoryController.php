@@ -21,13 +21,13 @@ class CategoryController
     public function store(Request $request)
     {
         $request->validate([
-            'name'=>'required',
-            'enabled'=>'required'
+            'name'=>'required'
         ]);
         $category = new Category([
             'name' => $request->input('name'),
             'alias' => Str::slug($request->input('name')),
-            'enabled' => $request->input('enabled')
+            'enabled' => $request->input('enabled'),
+            'is_menu' => $request->input('is_menu')
         ]);
         $category->save();
         return redirect('admin/cms/categories/'.$category->id)->with('success','Saved successfully!');
@@ -48,13 +48,13 @@ class CategoryController
     public function update($id, Request $request)
     {
         $request->validate([
-            'name'=>'required',
-            'enabled'=>'required'
+            'name'=>'required'
         ]);
         $category = Category::find($id);
         $category->name = $request->input('name');
         $category->alias = Str::slug($request->input('name'));
         $category->enabled = $request->input('enabled');
+        $category->is_menu = $request->input('is_menu');
         $category->save();
         return redirect('admin/cms/categories/'.$id)->with('success','Saved successfully!');
     }

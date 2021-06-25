@@ -38,10 +38,24 @@
         </label>
     </div>
     <div class="form-group form-check">
-        <input class="form-check-input" type="radio" name="enabled" id="categoryInactive" value="0"
+        <input class="form-check-input" type="radio" name="enabled" id="categoryInactive" value="0" 
             {{ $category->enabled == 0 ? 'checked' : '' }}>
         <label class="form-check-label" for="categoryInactive">
             Inactive
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="is_menu" id="menuActive" value="1"
+            {{ $category->is_menu == 1 ? 'checked' : '' }}>
+        <label class="form-check-label" for="menuActive">
+            Menu
+        </label>
+    </div>
+    <div class="form-group form-check">
+        <input class="form-check-input" type="radio" name="is_menu" id="menuInactive" value="0"
+            {{ $category->is_menu == 0 ? 'checked' : '' }}>
+        <label class="form-check-label" for="menuInactive">
+            Non menu
         </label>
     </div>
     <button type="submit" class="btn btn-primary mb-2">Submit</button>

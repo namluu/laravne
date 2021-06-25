@@ -41,6 +41,18 @@
             Inactive
         </label>
     </div>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="is_menu" id="menuActive" value="1">
+        <label class="form-check-label" for="menuActive">
+            Menu
+        </label>
+    </div>
+    <div class="form-group form-check">
+        <input class="form-check-input" type="radio" name="is_menu" id="menuInactive" value="0" checked>
+        <label class="form-check-label" for="menuInactive">
+            Non menu
+        </label>
+    </div>
     <button type="submit" class="btn btn-primary mb-2">Submit</button>
 </form>
 

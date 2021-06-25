@@ -18,6 +18,8 @@ class CreateCategoriesTable extends Migration
             $table->string('name');
             $table->string('alias')->unique();
             $table->boolean('enabled')->default(1);
+            $table->boolean('is_menu')->default(0);
+            $table->integer('sort_menu')->default(0);
             $table->timestamps();
         });
     }
