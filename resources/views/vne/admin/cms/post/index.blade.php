@@ -13,6 +13,7 @@
         <tr class="table-primary">
             <th scope="col">#</th>
             <th scope="col">Name</th>
+            <th scope="col">Category</th>
             <th scope="col">Enable</th>
             <th scope="col">Created</th>
             <th scope="col">Action</th>
@@ -23,6 +24,7 @@
             <tr>
                 <th scope="row">{{ $post->id }}</th>
                 <td>{{ $post->name }}</td>
+                <td>{{ $post->category->name }}</td>
                 <td>{{ $post->enabled }}</td>
                 <td>{{ $post->created_at }}</td>
                 <td>

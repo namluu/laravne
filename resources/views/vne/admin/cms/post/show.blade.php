@@ -11,6 +11,7 @@
     <h1>Post: {{ $post->name }}</h1>
     <p>Name: {{ $post->name }}</p>
     <p>Alias: {{ $post->alias }}</p>
+    <p>Category: {{ $post->category->name }}</p>
     <p>Active: {{ $post->enabled == 1 ? 'Yes' : 'No' }}</p>
 
     <div>

@@ -5,6 +5,7 @@ use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Category;
 
 class PostController
 {
@@ -16,7 +17,8 @@ class PostController
 
     public function create()
     {
-        return view('admin.cms.post.create');
+        $categories = Category::get();
+        return view('admin.cms.post.create', compact('categories'));
     }
 
     public function store(Request $request)
@@ -48,7 +50,8 @@ class PostController
     public function edit($id)
     {
         $post = Post::find($id);
-        return view('admin.cms.post.edit', compact('post'));
+        $categories = Category::get();
+        return view('admin.cms.post.edit', compact('post', 'categories'));
     }
 
     public function update($id, Request $request)
