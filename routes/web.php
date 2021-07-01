@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\Cms\CategoryController;
 use App\Http\Controllers\Admin\Cms\PostController;
+use App\Http\Controllers\Admin\User\UserController as UserManagerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +38,6 @@ Route::prefix('admin')->group(function () {
 
     Route::resource('/cms/categories', CategoryController::class)->middleware('auth');
     Route::resource('/cms/posts', PostController::class)->middleware('auth');
-
+    Route::resource('/user/users', UserManagerController::class)->middleware('auth');
 });
 
