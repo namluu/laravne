@@ -34,17 +34,7 @@
             </div>
         </header>
 
-        <sidebar>
-            <div class="container">
-                <ul class="main-menu">
-                    <li><a href="">Thời sự</a></li>
-                    <li><a href="">Góc nhìn</a></li>
-                    <li><a href="">Thế giới</a></li>
-                    <li><a href="">Video</a></li>
-                    <li><a href="">Kinh doanh</a></li>
-                </ul>
-            </div>
-        </sidebar>
+        @include('layout.menu')
 
         <div class="container">
             @yield('content')

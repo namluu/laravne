@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\Cms\CategoryController;
 use App\Http\Controllers\Admin\Cms\PostController;
 use App\Http\Controllers\Admin\User\UserController as UserManagerController;
+use App\Http\Controllers\PageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,9 +19,7 @@ use App\Http\Controllers\Admin\User\UserController as UserManagerController;
 |
 */
 
-Route::get('/', function () {
-    return view('pages.home');
-});
+Route::get('/', [PageController::class, 'home']);
 
 Route::prefix('admin')->group(function () {
     Route::get('/', function () {

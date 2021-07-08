@@ -23,4 +23,11 @@ class Category extends Model
         'created_at',
         'updated_at'
     ];
+
+    public function getMenu()
+    {
+        return $this::where('is_menu', 1)
+               ->orderBy('sort_menu', 'asc')
+               ->get();
+    }
 }
